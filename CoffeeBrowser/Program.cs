@@ -18,7 +18,7 @@ Console.WriteLine("browser created");
 // Create a new browser context
 var context = await browser.NewContextAsync(new BrowserNewContextOptions
 {
-    ViewportSize = null // Setting this to null makes the browser fullscreen
+    //ViewportSize = null // Setting this to null makes the browser fullscreen
 });
 Console.WriteLine("context created");
 
@@ -32,8 +32,8 @@ await page.GotoAsync("https://kaffe.kosatupp.se");
 Console.WriteLine("go to...");
 
 // Enter fullscreen mode
-await page.EvaluateAsync("() => document.documentElement.requestFullscreen()");
-Console.WriteLine("fullscreen...");
+//await page.EvaluateAsync("() => document.documentElement.requestFullscreen()");
+//Console.WriteLine("fullscreen...");
 // Refresh the page every hour
 while (true)
 {
