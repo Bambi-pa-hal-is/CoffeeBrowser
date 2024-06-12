@@ -12,15 +12,7 @@ await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeL
 {
     ExecutablePath = browserExecutablePath,
     Headless = false, // Set to true if you don't need a visible UI
-    Args = new[]
-                {
-                    "--start-fullscreen",
-                    "--disable-infobars",
-                    "--start-maximized", 
-                    "--disable-features=TranslateUI",
-                    "--noerrdialogs",
-                    "--kiosk" // This might help enforce fullscreen
-                }
+    Args = new[] { "--start-maximized", "--disable-infobars" } // Start maximized
 });
 
 Console.WriteLine("browser created");
@@ -45,10 +37,11 @@ Console.WriteLine("new page created");
 await page.GotoAsync("https://kaffe.kosatupp.se/coffeemachine");
 Console.WriteLine("go to...");
 await page.ContentAsync();
-await Task.Delay(5000);
 // Enter fullscreen mode
-await page.Keyboard.PressAsync("F11");
-Console.WriteLine("fullscreen requested");
+// Wait for the button with id fullscreenButton and click it
+await page.WaitForSelectorAsync("#fullscreenButton");
+await page.ClickAsync("#fullscreenButton");
+Console.WriteLine("fullscreen button clicked");
 // Refresh the page every hour
 while (true)
 {
