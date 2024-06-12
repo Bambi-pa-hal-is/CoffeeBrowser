@@ -32,7 +32,7 @@ Console.WriteLine("browser created");
 // Create a new browser context with the screen resolution
 var context = await browser.NewContextAsync(new BrowserNewContextOptions
 {
-    ViewportSize = null
+    ViewportSize = ViewportSize.NoViewport
 });
 Console.WriteLine("context created");
 
