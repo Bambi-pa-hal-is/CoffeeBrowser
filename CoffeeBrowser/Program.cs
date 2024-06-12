@@ -10,19 +10,20 @@ var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1117/chrome-
 await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
 {
     ExecutablePath = browserExecutablePath,
-    Headless = false // Set to true if you don't need a visible UI
+    Headless = false, // Set to true if you don't need a visible UI
+    Args = new[] { "--start-fullscreen" } // Start in fullscreen mode
 });
 
 Console.WriteLine("browser created");
 
 // Create a new browser context
-int screenWidth = 480;  // Set your screen width here
-int screenHeight = 320; // Set your screen height here
+//int screenWidth = 480;  // Set your screen width here
+//int screenHeight = 320; // Set your screen height here
 
 // Create a new browser context with the screen resolution
 var context = await browser.NewContextAsync(new BrowserNewContextOptions
 {
-    ViewportSize = new ViewportSize { Width = screenWidth, Height = screenHeight }
+    ViewportSize = null
 });
 Console.WriteLine("context created");
 
