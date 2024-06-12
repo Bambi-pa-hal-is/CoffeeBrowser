@@ -42,6 +42,12 @@ await page.ContentAsync();
 await page.WaitForSelectorAsync("#fullscreenButton");
 await page.ClickAsync("#fullscreenButton");
 Console.WriteLine("fullscreen button clicked");
+// Wait for the page to load completely
+await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+Console.WriteLine("page loaded");
+
+// Wait for an additional second to ensure everything is ready
+await Task.Delay(1000);
 
 await page.Keyboard.PressAsync("F11");
 Console.WriteLine("fullscreen requested");
