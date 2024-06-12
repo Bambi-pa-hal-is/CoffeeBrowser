@@ -10,7 +10,7 @@ var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1117/chrome-
 await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
 {
     ExecutablePath = browserExecutablePath,
-    Headless = true // Set to true if you don't need a visible UI
+    Headless = false // Set to true if you don't need a visible UI
 });
 
 Console.WriteLine("browser created");
