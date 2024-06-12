@@ -2,6 +2,7 @@
 using Microsoft.Playwright;
 
 Console.WriteLine("Starting...");
+Environment.SetEnvironmentVariable("DISPLAY", ":0");
 using var playwright = await Playwright.CreateAsync();
 
 var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1117/chrome-linux/chrome";
@@ -11,7 +12,14 @@ await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeL
 {
     ExecutablePath = browserExecutablePath,
     Headless = false, // Set to true if you don't need a visible UI
-    Args = new[] { "--start-fullscreen" } // Start in fullscreen mode
+    Args = new[]
+                {
+                    "--start-fullscreen",
+                    "--disable-infobars",
+                    "--disable-features=TranslateUI",
+                    "--noerrdialogs",
+                    "--kiosk" // This might help enforce fullscreen
+                }
 });
 
 Console.WriteLine("browser created");
