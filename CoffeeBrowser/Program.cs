@@ -16,6 +16,7 @@ await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeL
                 {
                     "--start-fullscreen",
                     "--disable-infobars",
+                    "--start-maximized", 
                     "--disable-features=TranslateUI",
                     "--noerrdialogs",
                     "--kiosk" // This might help enforce fullscreen
@@ -45,8 +46,8 @@ await page.GotoAsync("https://kaffe.kosatupp.se/coffeemachine");
 Console.WriteLine("go to...");
 await page.ContentAsync();
 // Enter fullscreen mode
-await page.EvaluateAsync("() => document.documentElement.requestFullscreen()");
-Console.WriteLine("fullscreen...");
+await page.Keyboard.PressAsync("F11");
+Console.WriteLine("fullscreen requested");
 // Refresh the page every hour
 while (true)
 {
