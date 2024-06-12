@@ -28,9 +28,9 @@ var page = await context.NewPageAsync();
 Console.WriteLine("new page created");
 
 // Navigate to the specified URL
-await page.GotoAsync("https://kaffe.kosatupp.se");
+await page.GotoAsync("https://kaffe.kosatupp.se/coffeemachine");
 Console.WriteLine("go to...");
-
+await page.ContentAsync();
 // Enter fullscreen mode
 await page.EvaluateAsync("() => document.documentElement.requestFullscreen()");
 Console.WriteLine("fullscreen...");
