@@ -3,9 +3,12 @@ using Microsoft.Playwright;
 
 using var playwright = await Playwright.CreateAsync();
 
-// Launch a new browser instance
+var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1117/chrome-linux/chrome";
+
+// Launch a new browser instance with the specified executable path
 await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
 {
+    ExecutablePath = browserExecutablePath,
     Headless = false // Set to true if you don't need a visible UI
 });
 
