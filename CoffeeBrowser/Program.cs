@@ -42,6 +42,9 @@ await page.ContentAsync();
 await page.WaitForSelectorAsync("#fullscreenButton");
 await page.ClickAsync("#fullscreenButton");
 Console.WriteLine("fullscreen button clicked");
+
+await page.Keyboard.PressAsync("F11");
+Console.WriteLine("fullscreen requested");
 // Refresh the page every hour
 while (true)
 {
