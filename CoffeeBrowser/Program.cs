@@ -16,9 +16,13 @@ await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeL
 Console.WriteLine("browser created");
 
 // Create a new browser context
+int screenWidth = 480;  // Set your screen width here
+int screenHeight = 320; // Set your screen height here
+
+// Create a new browser context with the screen resolution
 var context = await browser.NewContextAsync(new BrowserNewContextOptions
 {
-    ViewportSize = null // Setting this to null makes the browser fullscreen
+    ViewportSize = new ViewportSize { Width = screenWidth, Height = screenHeight }
 });
 Console.WriteLine("context created");
 
