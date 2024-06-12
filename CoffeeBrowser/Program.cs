@@ -45,6 +45,7 @@ Console.WriteLine("new page created");
 await page.GotoAsync("https://kaffe.kosatupp.se/coffeemachine");
 Console.WriteLine("go to...");
 await page.ContentAsync();
+await Task.Delay(5000);
 // Enter fullscreen mode
 await page.Keyboard.PressAsync("F11");
 Console.WriteLine("fullscreen requested");
