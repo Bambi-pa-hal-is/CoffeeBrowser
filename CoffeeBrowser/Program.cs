@@ -47,10 +47,13 @@ await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
 Console.WriteLine("page loaded");
 
 // Wait for an additional second to ensure everything is ready
-await Task.Delay(1000);
+await Task.Delay(500);
 
 await page.Keyboard.PressAsync("F11");
 Console.WriteLine("fullscreen requested");
+await Task.Delay(500);
+await page.EvaluateAsync("() => { document.documentElement.requestFullscreen().catch(console.error); }");
+
 // Refresh the page every hour
 while (true)
 {
