@@ -44,9 +44,6 @@ public class Program
         await page.ContentAsync();
         // Enter fullscreen mode
         // Wait for the button with id fullscreenButton and click it
-        await page.WaitForSelectorAsync("#fullscreenButton");
-        await page.ClickAsync("#fullscreenButton");
-        Console.WriteLine("fullscreen button clicked");
         // Wait for the page to load completely
         await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
         Console.WriteLine("page loaded");
