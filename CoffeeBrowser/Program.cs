@@ -49,12 +49,6 @@ public class Program
         Console.WriteLine("page loaded");
 
         // Wait for an additional second to ensure everything is ready
-        await Task.Delay(500);
-
-        await page.Keyboard.PressAsync("F11");
-        Console.WriteLine("fullscreen requested");
-        await Task.Delay(500);
-        await page.EvaluateAsync("() => { document.documentElement.requestFullscreen().catch(console.error); }");
         await Task.Delay(1000);
         if(OperatingSystem.IsLinux())
         {
