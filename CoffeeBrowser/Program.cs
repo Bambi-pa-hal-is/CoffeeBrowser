@@ -61,7 +61,7 @@ public class Program
         await Task.Delay(1000);
         if(OperatingSystem.IsLinux())
         {
-            SimulateKeyPress("f11");
+            SimulateKeyPress("F11");
         }
 
         // Refresh the page every hour
