@@ -10,7 +10,7 @@ public class Program
         Environment.SetEnvironmentVariable("DISPLAY", ":0");
         using var playwright = await Playwright.CreateAsync();
 
-        var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1117/chrome-linux/chrome";
+        var browserExecutablePath = "/home/pi/.cache/ms-playwright/chromium-1134/chrome-linux/chrome";
 
         // Launch a new browser instance with the specified executable path
         await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
